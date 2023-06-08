@@ -15,8 +15,62 @@
   </head>
   <body>
     <div class="container">
-      <h1>test</h1>
-      <a href="" class="btn btn-primary">test</a>
+      <img
+        src="images/weatherlogo.png"
+        class="logo"
+        alt="Weather App Logo"
+        title="Know the weather where you are"
+        width="150"
+      />
+      <form id="enterCity">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="text"
+                class="form-control entercity"
+                placeholder="Enter a city..."
+                id="city-input"
+              />
+            </div>
+            <div class="col-1">
+              <button type="submit" class="btn btn-primary" id="button-search">
+                Search
+              </button>
+            </div>
+            <div class="col-2">
+              <button
+                type="button"
+                class="btn btn-primary text-nowrap"
+                id="button-local"
+              >
+                Local Weather
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col-8">
+        <h3 id="currentCity">
+        <strong>Tokyo</strong>
+      </h3>
+      <p class="currentinfo">
+        <span id="currentDayTime">current day and time, </span><span id="condition">current condition</span>
+      </br>
+        Humidity: <span id="humidity">57</span>%, Wind: <span id="wind">7</span>mph
+      </p>
+        </div>
+        <div class="col-4">
+          <h1>
+              🌤 <span id="tempNow">66<a href="#" class="temptype" id="cel"> °C</a> |
+              <a href="#" class="temptype" id="fah">°F</a></span>
+            </h1>
+</div>
+      </div>
+
+<p class="closer">This project was coded by <a href="mailto:thekalwhite@gmail.com">Katie White</a> and is open-sourced on <a href="https://github.com/TheKatieWhite/katie-vanilla-weather-app" target="_blank">github.com</a> and hosted on <a href="https://www.netlify.com" target="_blank">Netlify.com</a>.</p>
       <script src="src/app.js"></script>
     </div>
   </body>
