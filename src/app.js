@@ -42,9 +42,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("title", response.data.weather[0].description);
 }
 
-let apiKey = "8402ccd9e55983fce71eeeaa1d2bd1fc";
-let city = "london";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
+function search(city) {
+  let apiKey = "8402ccd9e55983fce71eeeaa1d2bd1fc";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("kettering");
+
+let searchWeather = document.querySelector("#enterCity");
+searchWeather.addEventListener("submit", handleSubmit);
