@@ -1,7 +1,7 @@
 .weather-wrapper {
   max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
+  margin: 15px auto;
+  padding: 5px;
   border: 1px solid #448bf4;
   border-radius: 20px;
 }
@@ -32,9 +32,9 @@
   color: #8e79fa;
 }
 
-#currentCity {
+#city {
   margin-left: 25px;
-  margin-botton: 0;
+  margin-bottom: 0;
 }
 
 h1 {

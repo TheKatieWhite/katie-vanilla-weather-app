@@ -12,6 +12,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -54,7 +55,7 @@
 
       <div class="row">
         <div class="col-7">
-        <h3 id="currentCity">
+        <h3 id="city">
         <strong>Tokyo</strong>
       </h3>
       <p class="currentinfo">
@@ -65,7 +66,7 @@
         </div>
         <div class="col-5">
           <h1>
-              <span id="tempNow">66<a href="#" class="temptype" id="cel"> °C </a><span class="divider"> | </span>
+              <span><span id="tempNow">66</span><a href="#" class="temptype" id="cel"> °C </a><span class="divider"> | </span>
               <a href="#" class="temptype" id="fah"> °F</a></span>
             </h1>
 </div>
