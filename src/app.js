@@ -40,6 +40,8 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/w/${response.data.weather[0].icon}.png`
   );
   iconElement.setAttribute("title", response.data.weather[0].description);
+
+  celTemp = response.data.main.temp;
 }
 
 function search(city) {
@@ -54,7 +56,31 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function showFahTemp(event) {
+  event.preventDefault();
+  let fahTemp = (celTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#tempNow");
+  temperatureElement.innerHTML = Math.round(fahTemp);
+  fLink.innerHTML = "<a style='color:blue'> °F </a>";
+  cLink.innerHTML = "<a style='color:#3ebdff'> °C </a>";
+}
+
+function showCelTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#tempNow");
+  temperatureElement.innerHTML = Math.round(celTemp);
+  fLink.innerHTML = "<a style='color:#3ebdff'> °F </a>";
+  cLink.innerHTML = "<a style='color: blue'> °C </a>";
+}
 search("kettering");
+
+let celTemp = null;
 
 let searchWeather = document.querySelector("#enterCity");
 searchWeather.addEventListener("submit", handleSubmit);
+
+let fLink = document.querySelector("#fah");
+fLink.addEventListener("click", showFahTemp);
+
+let cLink = document.querySelector("#cel");
+cLink.addEventListener("click", showCelTemp);

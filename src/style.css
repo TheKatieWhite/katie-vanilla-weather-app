@@ -51,12 +51,20 @@ h1 {
 }
 
 .temptype {
-  color: #3ebdff;
   text-decoration: none;
+}
+
+#cel {
+  color: blue;
+}
+
+#fah {
+  color: #3ebdff;
 }
 
 .temptype:hover {
   color: blue;
+  cursor: default;
 }
 
 .currentinfo {
