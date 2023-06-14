@@ -74,6 +74,22 @@ h1 {
   font-size: 14px;
   color: grey;
 }
+
+.dailyPrediction {
+  text-align: center;
+  padding: 15px;
+}
+
+.forecastDay {
+  color: gray;
+  font-size: 14px;
+}
+
+.forecastTemp {
+  color: red;
+  font-size: 12px;
+}
+
 .closer {
   text-align: center;
   color: grey;

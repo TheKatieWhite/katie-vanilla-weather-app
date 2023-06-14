@@ -40,6 +40,7 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/w/${response.data.weather[0].icon}.png`
   );
   iconElement.setAttribute("title", response.data.weather[0].description);
+
   fLink.innerHTML = "<a style='color:#3ebdff'> °F </a>";
   cLink.innerHTML = "<a style='color: blue'> °C </a>";
 
