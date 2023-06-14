@@ -21,6 +21,31 @@ function formatDate(timestamp) {
   return `Updated ${day} ${hours}:${minutes}, `;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+        <div class="forecastDay">${day}</div>
+            <img src="https://openweathermap.org/img/w/10n.png" id="forecastIcon" title="" width="36"/>
+                <div class="forecastTemp">
+                <span class="forecastHigh"><strong>69°  </strong></span>
+                <span class="forecastLow">57°</span>
+                </div>
+        
+    </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#tempNow");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -78,6 +103,7 @@ function showCelTemp(event) {
 search("kettering");
 
 let celTemp = null;
+displayForecast();
 
 let searchWeather = document.querySelector("#enterCity");
 searchWeather.addEventListener("submit", handleSubmit);
