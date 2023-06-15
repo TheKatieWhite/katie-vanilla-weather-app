@@ -21,7 +21,8 @@ function formatDate(timestamp) {
   return `Updated ${day} ${hours}:${minutes}, `;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -46,6 +47,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "8402ccd9e55983fce71eeeaa1d2bd1fc";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#tempNow");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -66,7 +75,9 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("title", response.data.weather[0].description);
 
-  fLink.innerHTML = "<a style='color:#3ebdff'> °F </a>";
+  getForecast(response.data.coord);
+
+  https: fLink.innerHTML = "<a style='color:#3ebdff'> °F </a>";
   cLink.innerHTML = "<a style='color: blue'> °C </a>";
 
   celTemp = response.data.main.temp;
@@ -103,7 +114,6 @@ function showCelTemp(event) {
 search("kettering");
 
 let celTemp = null;
-displayForecast();
 
 let searchWeather = document.querySelector("#enterCity");
 searchWeather.addEventListener("submit", handleSubmit);
